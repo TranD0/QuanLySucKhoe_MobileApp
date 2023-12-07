@@ -51,9 +51,10 @@
         app:startIconDrawable="@drawable/ic_email">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,9 +72,10 @@
         app:startIconDrawable="@drawable/ico_lock">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Password"
+            android:hint="@string/password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
     <FrameLayout
@@ -85,7 +87,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"></FrameLayout>
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_Login"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:layout_margin="32dp"
