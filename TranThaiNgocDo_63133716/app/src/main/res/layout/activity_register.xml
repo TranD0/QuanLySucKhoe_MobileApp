@@ -50,7 +50,7 @@
         app:layout_constraintStart_toStartOf="parent"></FrameLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonReg"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:background="@drawable/btn_bg"
@@ -61,7 +61,7 @@
         app:layout_constraintBottom_toTopOf="@+id/frameLayou1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/PasswordReg" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout7"
@@ -76,6 +76,7 @@
         app:startIconDrawable="@drawable/ic_person">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/FirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="First Name" />
@@ -94,13 +95,14 @@
         app:startIconDrawable="@drawable/ic_person">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/LastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Last Name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout9"
+        android:id="@+id/ReEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -112,13 +114,14 @@
         app:startIconDrawable="@drawable/ic_email">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/RegEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout10"
+        android:id="@+id/PasswordReg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -126,43 +129,36 @@
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9"
+        app:layout_constraintTop_toBottomOf="@+id/ReEmail"
         app:startIconDrawable="@drawable/ico_lock">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/PassReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <ProgressBar
+        android:id="@+id/progpressBar"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout10">
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Male"
-            android:layout_marginRight="100dp"
-            app:layout_constraintEnd_toStartOf="@+id/radioButton"
-            tools:layout_editor_absoluteY="504dp"></RadioButton>
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Female"
-            tools:layout_editor_absoluteX="194dp"
-            tools:layout_editor_absoluteY="504dp"></RadioButton>
-
-    </LinearLayout>
-
+        app:layout_constraintTop_toTopOf="parent"></ProgressBar>
+    <TextView
+        android:id="@+id/txtLoginNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Have an account? Login now"
+        android:textSize="18dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayou1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonReg" />
 
 
 
