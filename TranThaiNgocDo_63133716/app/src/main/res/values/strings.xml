@@ -3,4 +3,8 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="logout">Logout</string>
+    <string name="navi">Logout</string>
+
+    <string name="navigation_drawer_open">Open anvigation drawer</string>
+    <string name="navigation_drawer_close">Close anvigation drawer</string>
 </resources>
