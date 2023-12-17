@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +30,7 @@ public class Register extends AppCompatActivity {
     TextView txtLogin;
     Button btnReg;
     FirebaseAuth mAuth;
-    ProgressBar progressBar;
+    ImageView progressBar;
     @Override
     public void onStart() {
         super.onStart();

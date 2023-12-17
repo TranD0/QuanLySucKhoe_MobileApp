@@ -3,13 +3,12 @@ package vn.tranthaingocdo.tranthaingocdo_63133716;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,16 +27,9 @@ public class Login extends AppCompatActivity {
     TextView txtRegister;
     Button btnLog;
     FirebaseAuth mAuth;
-    ProgressBar progressBar;
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            ChuyenTrang();
-        }
-    }
+    ImageView progressBar;
+    MainActivity mainActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +44,7 @@ public class Login extends AppCompatActivity {
         txtRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Register.class);
-                startActivity(intent);
-                finish();
+              ChuyenTrang(Register.class);
             }
     });
     btnLog.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +67,7 @@ public class Login extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                               ChuyenTrang();
+                               ChuyenTrang(MenuActivity.class);
                             } else {
                                 Toast.makeText(Login.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
@@ -86,9 +76,9 @@ public class Login extends AppCompatActivity {
                     });
         }
     });
-    }
-    public void ChuyenTrang(){
-        Intent intent =new Intent(getApplicationContext(),MenuActivity.class);
+   }
+    public void ChuyenTrang(Class<?> cls){
+        Intent intent = new Intent(getApplicationContext(), cls);
         startActivity(intent);
         finish();
     }
