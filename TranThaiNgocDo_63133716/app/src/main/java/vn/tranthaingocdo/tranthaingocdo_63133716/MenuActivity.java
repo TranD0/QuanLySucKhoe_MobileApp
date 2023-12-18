@@ -26,10 +26,12 @@ import com.google.firebase.auth.FirebaseUser;
 
 import vn.tranthaingocdo.tranthaingocdo_63133716.fragment.HomeFragment;
 import vn.tranthaingocdo.tranthaingocdo_63133716.fragment.ProficeFragment;
+import vn.tranthaingocdo.tranthaingocdo_63133716.fragment.WaterFragment;
 
 public class MenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final int FRAGMENT_HOME=0;
     private static final int FRAGMENT_PROFICE=1;
+    private static final int FRAGMENT_WATER=2;
     private int currentFragment = FRAGMENT_HOME;
     FirebaseAuth auth;
 
@@ -92,6 +94,13 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
                     getSupportActionBar().setTitle("Profice");
                 }
             }
+        else if(id == R.id.water){
+            if(currentFragment!=FRAGMENT_WATER){
+                replaceFragment(new WaterFragment());
+                currentFragment = FRAGMENT_WATER;
+                getSupportActionBar().setTitle("Water");
+            }
+        }
             else if (id == R.id.LogOut) {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), Login.class);

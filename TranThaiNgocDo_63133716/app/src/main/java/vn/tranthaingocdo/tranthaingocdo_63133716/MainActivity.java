@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         lottieAnimationView=findViewById(R.id.lottie);
         //
         splashImg.animate().translationY(-1900).setDuration(1000).setStartDelay(3000);
-        logo.animate().translationY(2000).setDuration(1000).setStartDelay(3000);
-        appName.animate().translationY(1400).setDuration(1000).setStartDelay(3000);
+        logo.animate().translationY(2000).setDuration(1000).setStartDelay(2990);
+        appName.animate().translationY(1400).setDuration(1000).setStartDelay(2990);
         lottieAnimationView.animate().translationY(1400).setDuration(1000).setStartDelay(3000);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
                 ChuyenTrang(Login.class);
             }
-        }, 3500); // Chuyển sau 5 giây (thời gian của các animation + thời gian sleep trước đó)
+        }, 3580); // Chuyển sau 5 giây (thời gian của các animation + thời gian sleep trước đó)
     }
     public void ChuyenTrang(Class<?> cls){
         Intent intent = new Intent(getApplicationContext(), cls);

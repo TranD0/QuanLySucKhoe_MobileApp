@@ -10,9 +10,9 @@
             android:icon="@drawable/home_icon"
             android:title="About"></item>
         <item
-            android:id="@+id/b"
-            android:icon="@drawable/home_icon"
-            android:title="me"></item>
+            android:id="@+id/water"
+            android:icon="@drawable/water_icon"
+            android:title="Water"></item>
 
     </group>
     <item
