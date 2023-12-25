@@ -1,23 +1,16 @@
 package vn.tranthaingocdo.tranthaingocdo_63133716;
 
-import static android.view.View.generateViewId;
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -29,7 +22,7 @@ public class Register extends AppCompatActivity {
     TextInputEditText edtFirstName,edtLastName,edtEmail,edtPassword;
     TextView txtLogin;
     Button btnReg;
-    FirebaseAuth mAuth;
+    FirebaseAuth mAuth;static Profice profice;
     ImageView progressBar;
     @Override
     public void onStart() {
@@ -87,6 +80,10 @@ public class Register extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
+                                     profice = new Profice();
+                                    profice.setEmail(email);
+                                    profice.setFName(firstName);
+                                    profice.setLName(lastName);
                                     Toast.makeText(Register.this, "Account created", Toast.LENGTH_SHORT).show();
 
                                 } else {

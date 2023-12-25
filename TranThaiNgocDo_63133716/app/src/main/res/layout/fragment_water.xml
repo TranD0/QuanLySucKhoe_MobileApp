@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20sp"
     tools:context=".fragment.WaterFragment">
 
     <ProgressBar
@@ -50,6 +51,8 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/btn_bg"
+            app:backgroundTint="@null"
             android:text="+50 ml" />
 
         <Button
@@ -60,6 +63,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/btn_bg"
+            app:backgroundTint="@null"
             android:text="+200 ml" />
 
         <Button
@@ -69,6 +74,8 @@
             android:layout_below="@id/progressBar"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
+            android:background="@drawable/btn_bg"
+            app:backgroundTint="@null"
             android:text="+500 ml" />
     </LinearLayout>
 
@@ -81,31 +88,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
         <Button
-            android:id="@+id/decrease50Button"
+            android:id="@+id/decreaseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
             android:layout_below="@id/increase50Button"
             android:layout_alignParentStart="true"
+            android:background="@drawable/btn_bg"
+            app:backgroundTint="@null"
             android:layout_marginTop="20dp"
-            android:text="- 50 ml" />
+            android:text="- ml" />
 
-        <Button
-            android:id="@+id/decrease200Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_below="@id/increase200Button"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:text="- 200 ml" />
-        <Button
-            android:id="@+id/decrease500Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/increase500Button"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:text="- 500 ml" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

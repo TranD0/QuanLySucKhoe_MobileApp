@@ -12,14 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import vn.tranthaingocdo.tranthaingocdo_63133716.MenuActivity;
 import vn.tranthaingocdo.tranthaingocdo_63133716.R;
 
 public class WaterFragment extends Fragment  {
     private ProgressBar progressBar;
     TextView txtProcess; // Khai báo biến View để lưu trữ giao diện của Fragment
     private View rootView;
+    int PastWater=0;
 
-    private Button increase50Button, increase200Button, increase500Button, decrease50Button, decrease200Button, decrease500Button;
+
+    private Button increase50Button, increase200Button, increase500Button, decreaseButton;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -32,25 +35,21 @@ public class WaterFragment extends Fragment  {
         increase50Button = rootView.findViewById(R.id.increase50Button);
         increase200Button = rootView.findViewById(R.id.increase200Button);
         increase500Button = rootView.findViewById(R.id.increase500Button);
-        decrease50Button = rootView.findViewById(R.id.decrease50Button);
-        decrease200Button = rootView.findViewById(R.id.decrease200Button);
-        decrease500Button = rootView.findViewById(R.id.decrease500Button);
-
+        decreaseButton = rootView.findViewById(R.id.decreaseButton);
         // Sử dụng rootView để tìm các phần tử trong giao diện
-
         increase50Button.setOnClickListener(view -> updateProgress(50));
         increase200Button.setOnClickListener(view -> updateProgress(200));
         increase500Button.setOnClickListener(view -> updateProgress(500));
-        decrease50Button.setOnClickListener(view -> updateProgress(-50));
-        decrease200Button.setOnClickListener(view -> updateProgress(-200));
-        decrease500Button.setOnClickListener(view -> updateProgress(-500));
+        decreaseButton.setOnClickListener(view -> updateProgress(PastWater));
+
 
         return rootView;
     }
     private void updateProgress(int increment) {
         // Lấy giá trị hiện tại của thanh tiến trình
         int currentProgress = progressBar.getProgress();
-
+        if(PastWater!=increment)
+            PastWater=-increment;
         // Tính giá trị mới, không vượt quá giới hạn 2000 hoặc dưới 0
         int newProgress = Math.max(0, Math.min(currentProgress + increment, 2000));
 
