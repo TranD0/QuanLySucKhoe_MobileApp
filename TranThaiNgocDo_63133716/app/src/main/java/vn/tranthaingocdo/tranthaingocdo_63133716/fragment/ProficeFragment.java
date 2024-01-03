@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.time.LocalDate;
 
+import vn.tranthaingocdo.tranthaingocdo_63133716.Profice;
 import vn.tranthaingocdo.tranthaingocdo_63133716.ProficeActivity;
 import vn.tranthaingocdo.tranthaingocdo_63133716.R;
 
@@ -52,7 +53,6 @@ public class ProficeFragment extends Fragment
         BMI= rootView.findViewById(R.id.BMI);
         BMR= rootView.findViewById(R.id.BMR);
         Calo= rootView.findViewById(R.id.Calo);
-
         //
         auth = FirebaseAuth.getInstance();
         User = auth.getCurrentUser();
@@ -102,7 +102,7 @@ private void ReadData(String email){
         @Override
         public void onComplete(@NonNull Task<DataSnapshot> task) {
             if(task.isSuccessful()){
-                if(task.getResult().exists()){
+                if(task.getResult().exists()) {
                     DataSnapshot dataSnapshot = task.getResult();
                     String Fn = String.valueOf(dataSnapshot.child("fname").getValue());
                     String Ln = String.valueOf(dataSnapshot.child("lname").getValue());
@@ -111,24 +111,29 @@ private void ReadData(String email){
                     String gen = String.valueOf(dataSnapshot.child("gender").getValue());
                     String Yea = String.valueOf(dataSnapshot.child("year").getValue());
                     int currentYear = LocalDate.now().getYear();
-                    int Age =currentYear-Integer.parseInt(Yea);
+                    int Age = currentYear - Integer.parseInt(Yea);
                     Fname.setText(Fn);
                     Lname.setText(Ln);
                     Gender.setText(gen);
                     Height.setText(Hig);
                     Weight.setText(Wei);
                     Year.setText(String.valueOf(Age));
-                    float KQBMR=0;
+                    float KQBMR = 0;
                     //66 + (13.7 x Cân nặng kg) + (5 x Chiều cao cm) – (6.8 x tuổi).
-                    if(gen.equals("Male"))
-                        KQBMR=(float)  66 + 13.7f * Float.parseFloat(Wei) + 5* Float.parseFloat(Hig)- 6.8f*(float)Age;
+                    if (gen.equals("Male"))
+                        KQBMR = (float) 66 + 13.7f * Float.parseFloat(Wei) + 5 * Float.parseFloat(Hig) - 6.8f * (float) Age;
                     else
                         //655 + (9.6 x Cân nặng kg) + (1.8 x Chiều cao cm) – (4.7 x tuổi).
-                        KQBMR=(float)  655 + 9.6f * Float.parseFloat(Wei) + 1.8f* Float.parseFloat(Hig)- 4.7f*(float)Age;
-                    float KQBMI= Float.parseFloat(Wei)/(( Float.parseFloat(Hig)/100)*( Float.parseFloat(Hig)/100));
-                    BMRSave=KQBMR;
-                    BMI.setText( String.valueOf(KQBMI));
-                    BMR.setText( String.valueOf(KQBMR));
+                        KQBMR = (float) 655 + 9.6f * Float.parseFloat(Wei) + 1.8f * Float.parseFloat(Hig) - 4.7f * (float) Age;
+                    float KQBMI = Float.parseFloat(Wei) / ((Float.parseFloat(Hig) / 100) * (Float.parseFloat(Hig) / 100));
+                    BMRSave = KQBMR;
+                    BMI.setText(String.valueOf(KQBMI));
+                    BMR.setText(String.valueOf(KQBMR));
+                }
+                else {
+                    Profice profile = new Profice("FirstName", "LastName", email, "unknow", 50, 150, 1000);
+                    ref = db.getReference("Users");
+                    ref.child(email.replace(".", ",")).setValue(profile);
                 }
             }
         }

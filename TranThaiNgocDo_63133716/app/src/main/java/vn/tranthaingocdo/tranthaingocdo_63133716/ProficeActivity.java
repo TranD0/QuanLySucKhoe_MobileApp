@@ -17,8 +17,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.time.LocalDate;
+
 public class ProficeActivity extends AppCompatActivity {
     TextInputEditText edtWeight,edtHeight,edtFname,edtLname,edtYear;
     Button button;  private FirebaseDatabase db;private DatabaseReference ref;
@@ -38,6 +42,7 @@ public class ProficeActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         User = auth.getCurrentUser();
         email = User.getEmail();
+        ReadData(email.replace(".", ","));
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -75,4 +80,32 @@ public class ProficeActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    private void ReadData(String email){
+        ref=FirebaseDatabase.getInstance().getReference("Users");
+        ref.child(email).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isSuccessful()){
+                    if(task.getResult().exists()){
+                        DataSnapshot dataSnapshot = task.getResult();
+                        String Fn = String.valueOf(dataSnapshot.child("fname").getValue());
+                        String Ln = String.valueOf(dataSnapshot.child("lname").getValue());
+                        String Hig = String.valueOf(dataSnapshot.child("hight").getValue());
+                        String Wei = String.valueOf(dataSnapshot.child("weight").getValue());
+                        String Yea = String.valueOf(dataSnapshot.child("year").getValue());
+                        int currentYear = LocalDate.now().getYear();
+                        int Age =currentYear-Integer.parseInt(Yea);
+                        edtFname.setText(Fn);
+                        edtLname.setText(Ln);
+
+                        edtHeight.setText(Hig);
+                        edtWeight.setText(Wei);
+                        edtYear.setText(String.valueOf(Age));
+
+                    }
+                }
+            }
+        });
+    }
+
 }

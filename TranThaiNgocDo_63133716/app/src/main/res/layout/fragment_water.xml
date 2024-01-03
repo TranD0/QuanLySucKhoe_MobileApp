@@ -6,16 +6,56 @@
     android:layout_height="match_parent"
     android:padding="20sp"
     tools:context=".fragment.WaterFragment">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="320sp"
+        android:alpha="0.4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250sp"
+        android:background="#FCF0FF"
+        android:gravity="center"
+        android:paddingLeft="5sp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10sp"
+            android:text="Remember to drink 2 litre water everyday!!!"
+            android:textSize="16sp"
+            android:textStyle="bold"></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20sp"
+            android:textSize="13sp"
+            android:text="Water helps regulate body temperature Water helps the body excrete waste Water increases energy, strength and endurance for the body, protects tissues, spinal cord and joints. Improves blood oxygen circulation Water aids the body in digestion by secreting saliva, promotes digestion, prevents constipation, dissolves, transports and enhances absorption of nutrients, vitamins and minerals Water supports brain function support. When there is not enough water in the human body, it can negatively affect concentration, alertness and short-term memory. Water helps keep skin youthful, aids weight loss,...">
+
+        </TextView>
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="200sp"
         android:layout_height="200sp"
+        android:layout_marginTop="40dp"
         android:indeterminateOnly="false"
         android:max="2000"
         android:progress="0"
         android:progressDrawable="@drawable/circle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,8 +69,10 @@
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/progressBar"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.558"></TextView>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -80,24 +122,26 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:gravity="center_horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
         <Button
             android:id="@+id/decreaseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/increase50Button"
             android:layout_alignParentStart="true"
-            android:background="@drawable/btn_bg"
-            app:backgroundTint="@null"
             android:layout_marginTop="20dp"
-            android:text="- ml" />
-
+            android:background="@drawable/btn_bg"
+            android:text="- ml"
+            app:backgroundTint="@null" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

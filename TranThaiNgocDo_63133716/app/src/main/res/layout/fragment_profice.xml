@@ -11,8 +11,9 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300sp"
         android:layout_marginTop="10dp"
+
         android:background="@drawable/btn_bg1"
         android:orientation="vertical"
         android:padding="5dp"
@@ -120,9 +121,6 @@
 
                 android:text="none "
                 android:textSize="16dp"></TextView>
-
-
-
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -177,9 +175,6 @@
                     android:textSize="18dp"></TextView>
             </LinearLayout>
         </LinearLayout>
-
-
-
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
@@ -189,12 +184,10 @@
             android:text="Change"
             ></Button>
     </LinearLayout>
-
-
     <LinearLayout
         android:id="@+id/LLNMI"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         android:background="@drawable/btn_bg1"
         android:gravity="center"
         android:layout_marginTop="5dp"
@@ -203,13 +196,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TÍNH BMI-BMR-BFP ONLINE"
+            android:text="Calculator BMI-BMR-ONLINE"
+            android:textSize="22sp"
             android:textStyle="bold"></TextView>
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
@@ -236,7 +228,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
-                android:text="Chỉ số BMI của bạn: "
+                android:text="Your BMI: "
                 android:textSize="16dp"></TextView>
 
             <TextView
@@ -254,7 +246,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
-                android:text="chỉ số BMR của bạn: "
+                android:text="Your BMR : "
                 android:textSize="16dp"></TextView>
 
             <TextView
@@ -272,7 +264,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
-                android:text="Lượng calo mỗi ngày: "
+                android:text="Your Calo/perDay: "
                 android:textSize="16dp"></TextView>
 
             <TextView

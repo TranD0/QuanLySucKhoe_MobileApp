@@ -65,19 +65,40 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:startIconDrawable="@drawable/ic_email">
+        app:startIconDrawable="@drawable/ico_lock">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/RegPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
+            android:inputType="textPassword"
             />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/Pass1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Pass"
+        app:startIconDrawable="@drawable/ico_lock">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/CofPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm password"
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
     <FrameLayout
         android:id="@+id/frameLayou1"
@@ -87,6 +108,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"></FrameLayout>
+
 
     <Button
         android:id="@+id/buttonReg"
@@ -100,7 +122,7 @@
         app:layout_constraintBottom_toTopOf="@+id/frameLayou1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Pass" />
+        app:layout_constraintTop_toBottomOf="@+id/Pass1" />
 
     <TextView
         android:id="@+id/txtLoginNow"

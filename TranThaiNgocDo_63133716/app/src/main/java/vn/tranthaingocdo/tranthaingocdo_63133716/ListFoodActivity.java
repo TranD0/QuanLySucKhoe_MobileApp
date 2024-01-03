@@ -104,7 +104,7 @@ public class ListFoodActivity extends AppCompatActivity {
                     ref.child("1 chén cơm (100gr)").setValue(130).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            ChuyenTrang(Login.class);
+                            ChuyenTrang(MenuActivity.class);
                         }
                     });
                 }

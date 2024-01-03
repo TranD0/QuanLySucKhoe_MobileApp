@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 //    ChuyenTrang(MenuActivity.class);
 //    }
 //        }
-//
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

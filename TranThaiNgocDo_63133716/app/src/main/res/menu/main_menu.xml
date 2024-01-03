@@ -13,10 +13,7 @@
             android:id="@+id/water"
             android:icon="@drawable/water_icon"
             android:title="Water"></item>
-        <item
-            android:id="@+id/alarm"
-            android:icon="@drawable/alarm_icon"
-            android:title="Alarm"></item>
+
 
     </group>
     <item
