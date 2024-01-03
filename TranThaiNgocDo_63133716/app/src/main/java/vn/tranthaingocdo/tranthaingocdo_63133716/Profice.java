@@ -2,16 +2,27 @@ package vn.tranthaingocdo.tranthaingocdo_63133716;
 
 public class Profice {
     String FName,LName,Email, Gender;
+    int Year;
+
+    public int getYear() {
+        return Year;
+    }
+
+    public void setYear(int year) {
+        Year = year;
+    }
+
     float Weight,Hight;
     public Profice() {
     }
-    public Profice(String FName, String LName, String email, String Gender, float weight, float hight) {
+    public Profice(String FName, String LName, String email, String Gender, float weight, float hight,int Year) {
         this.FName = FName;
         this.LName = LName;
         this.Email = email;
         this.Gender = Gender;
         this.Weight = weight;
         this.Hight = hight;
+        this.Year = Year;
     }
 
     public String getFName() {

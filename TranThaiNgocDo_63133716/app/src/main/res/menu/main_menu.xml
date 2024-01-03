@@ -6,13 +6,17 @@
             android:icon="@drawable/home_icon"
             android:title="Home"></item>
         <item
-            android:id="@+id/a"
+            android:id="@+id/Calo"
             android:icon="@drawable/home_icon"
-            android:title="About"></item>
+            android:title="Calo"></item>
         <item
             android:id="@+id/water"
             android:icon="@drawable/water_icon"
             android:title="Water"></item>
+        <item
+            android:id="@+id/alarm"
+            android:icon="@drawable/alarm_icon"
+            android:title="Alarm"></item>
 
     </group>
     <item

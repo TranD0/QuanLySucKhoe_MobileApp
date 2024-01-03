@@ -3,6 +3,8 @@ package vn.tranthaingocdo.tranthaingocdo_63133716;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,29 +21,29 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Register extends AppCompatActivity {
-    TextInputEditText edtFirstName,edtLastName,edtEmail,edtPassword;
+    TextInputEditText edtEmail,edtPassword;
     TextView txtLogin;
     Button btnReg;
-    FirebaseAuth mAuth;static Profice profice;
+    FirebaseAuth mAuth;
     ImageView progressBar;
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            ChuyenTrang();
-        }
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        if(currentUser != null){
+//            ChuyenTrang();
+//        }
+//    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         mAuth=FirebaseAuth.getInstance();
-        edtFirstName = findViewById(R.id.FirstName);
-        edtLastName = findViewById(R.id.LastName);
+
         edtEmail = findViewById(R.id.RegEmail);
-        edtPassword = findViewById(R.id.PassReg);
+        edtPassword = findViewById(R.id.RegPass);
         btnReg =  findViewById(R.id.buttonReg);
         progressBar = findViewById(R.id.progpressBar);
         txtLogin=findViewById(R.id.txtLoginNow);
@@ -57,17 +59,11 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                String firstName,lastName,email,password;
-                firstName = String.valueOf(edtFirstName.getText());
-                lastName = String.valueOf(edtLastName.getText());
+                String email,password;
+
                 email = String.valueOf(edtEmail.getText());
                 password = String.valueOf(edtPassword.getText());
-                if(TextUtils.isEmpty(firstName)){
-                    Toast.makeText(Register.this, "Enter First Name", Toast.LENGTH_SHORT).show();
-                }
-                if(TextUtils.isEmpty(lastName)){
-                    Toast.makeText(Register.this, "Enter Last Name", Toast.LENGTH_SHORT).show();
-                }
+
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(Register.this, "Enter Email", Toast.LENGTH_SHORT).show();
                 }
@@ -80,11 +76,9 @@ public class Register extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                     profice = new Profice();
-                                    profice.setEmail(email);
-                                    profice.setFName(firstName);
-                                    profice.setLName(lastName);
+
                                     Toast.makeText(Register.this, "Account created", Toast.LENGTH_SHORT).show();
+
 
                                 } else {
                                     Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
@@ -92,14 +86,13 @@ public class Register extends AppCompatActivity {
                                 }
                             }
                         });
-
-
             }
         });
     }
-    public void ChuyenTrang(){
-        Intent intent =new Intent(getApplicationContext(),MenuActivity.class);
+    public void ChuyenTrang(Class<?> cls){
+        Intent intent = new Intent(getApplicationContext(), cls);
         startActivity(intent);
         finish();
     }
+
 }

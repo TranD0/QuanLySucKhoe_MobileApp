@@ -2,7 +2,6 @@ package vn.tranthaingocdo.tranthaingocdo_63133716;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -12,18 +11,15 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import vn.tranthaingocdo.tranthaingocdo_63133716.fragment.CaloFragment;
 import vn.tranthaingocdo.tranthaingocdo_63133716.fragment.HomeFragment;
 import vn.tranthaingocdo.tranthaingocdo_63133716.fragment.ProficeFragment;
 import vn.tranthaingocdo.tranthaingocdo_63133716.fragment.WaterFragment;
@@ -31,7 +27,7 @@ import vn.tranthaingocdo.tranthaingocdo_63133716.fragment.WaterFragment;
 public class MenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final int FRAGMENT_HOME=0;
     private static final int FRAGMENT_PROFICE=1;
-    private static final int FRAGMENT_WATER=2;
+    private static final int FRAGMENT_WATER=2; private static final int FRAGMENT_CALO=3;
     private int currentFragment = FRAGMENT_HOME;
     FirebaseAuth auth;
 
@@ -101,6 +97,13 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
                 getSupportActionBar().setTitle("Water");
             }
         }
+            else if(id == R.id.Calo){
+                if(currentFragment!=FRAGMENT_CALO){
+                    replaceFragment(new CaloFragment());
+                    currentFragment = FRAGMENT_CALO;
+                    getSupportActionBar().setTitle("Calo");
+                }
+            }
             else if (id == R.id.LogOut) {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), Login.class);

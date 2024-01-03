@@ -39,9 +39,10 @@
                 android:textSize="16dp"></TextView>
 
             <TextView
+                android:id="@+id/UF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="tran"
+                android:text="none"
                 android:textSize="18dp"></TextView>
         </LinearLayout>
 
@@ -63,12 +64,12 @@
                 android:textSize="16dp"></TextView>
 
             <TextView
+                android:id="@+id/UL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Do"
+                android:text="none"
                 android:textSize="18dp"></TextView>
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,22 +78,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ico_calendar"></TextView>
+                android:background="@drawable/ic_person"></TextView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
-                android:text="Date of Birth"
+                android:text="Your Age: "
                 android:textSize="16dp"></TextView>
 
             <TextView
+                android:id="@+id/UA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="18/08/2003"
+                android:text="none"
                 android:textSize="18dp"></TextView>
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -111,24 +112,16 @@
                 android:fontFamily="@font/baloo"
                 android:text="Gender: "
                 android:textSize="16dp"></TextView>
-
-            <RadioGroup
+            <TextView
+                android:id="@+id/UG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginTop="10dp"
 
-                <RadioButton
-                    android:id="@+id/radio_M"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Male"></RadioButton>
+                android:text="none "
+                android:textSize="16dp"></TextView>
 
-                <RadioButton
-                    android:id="@+id/radio_F"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Female"></RadioButton>
-            </RadioGroup>
+
 
         </LinearLayout>
         <LinearLayout
@@ -153,9 +146,10 @@
                     android:textSize="16dp"></TextView>
 
                 <TextView
+                    android:id="@+id/UW"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="60"
+                    android:text="none"
                     android:textSize="18dp"></TextView>
             </LinearLayout>
 
@@ -176,9 +170,10 @@
                     android:text="Heigh(cm): "
                     android:textSize="16dp"></TextView>
                 <TextView
+                    android:id="@+id/UH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="170"
+                    android:text="none"
                     android:textSize="18dp"></TextView>
             </LinearLayout>
         </LinearLayout>
@@ -245,9 +240,10 @@
                 android:textSize="16dp"></TextView>
 
             <TextView
+                android:id="@+id/BMI"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="60"
+                android:text="none"
                 android:textSize="18dp"></TextView>
         </LinearLayout>
         <LinearLayout
@@ -258,13 +254,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
-                android:text="Năng lượng cần mỗi ngày: "
+                android:text="chỉ số BMR của bạn: "
                 android:textSize="16dp"></TextView>
 
             <TextView
+                android:id="@+id/BMR"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="60"
+                android:text="none"
                 android:textSize="18dp"></TextView>
         </LinearLayout>
         <LinearLayout
@@ -275,31 +272,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/baloo"
-                android:text="Nếu bạn muốn tăng cân: "
+                android:text="Lượng calo mỗi ngày: "
                 android:textSize="16dp"></TextView>
 
             <TextView
+                android:id="@+id/Calo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="60"
+                android:text="none"
                 android:textSize="18dp"></TextView>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/baloo"
-                android:text="Nếu Bạn muốn giảm cân: "
-                android:textSize="16dp"></TextView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="60"
-                android:textSize="18dp"></TextView>
-        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

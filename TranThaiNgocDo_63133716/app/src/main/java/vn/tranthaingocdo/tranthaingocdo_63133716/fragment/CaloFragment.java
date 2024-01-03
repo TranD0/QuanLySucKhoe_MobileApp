@@ -5,10 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,38 +23,36 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 import vn.tranthaingocdo.tranthaingocdo_63133716.Daily;
-import vn.tranthaingocdo.tranthaingocdo_63133716.Login;
-import vn.tranthaingocdo.tranthaingocdo_63133716.MenuActivity;
-import vn.tranthaingocdo.tranthaingocdo_63133716.ProficeActivity;
+import vn.tranthaingocdo.tranthaingocdo_63133716.ListFoodActivity;
 import vn.tranthaingocdo.tranthaingocdo_63133716.R;
 
-public class HomeFragment extends Fragment {
-    private View rootView;  FirebaseAuth auth;String email;    FirebaseUser User; private FirebaseDatabase db;private DatabaseReference ref;
-    private ProgressBar progressBar;
+public class CaloFragment extends Fragment {
+    private View rootView; FirebaseAuth auth;String email;    FirebaseUser User; private FirebaseDatabase db;private DatabaseReference ref;
+    LinearLayout waterpg;
     TextView day,caloSum,count;
+    Button button;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        day= rootView.findViewById(R.id.DateNow);
-        caloSum = rootView.findViewById(R.id.CaloSum);
-        count =rootView.findViewById(R.id.countF);
-        progressBar = rootView.findViewById(R.id.progressBar);
+        rootView = inflater.inflate(R.layout.fragment_calo, container, false);
+        button=rootView.findViewById(R.id.buttonAdd);
+        caloSum=rootView.findViewById(R.id.CaloSum1);
+        count=rootView.findViewById(R.id.count1);
         auth = FirebaseAuth.getInstance();
         User = auth.getCurrentUser();
         email = User.getEmail();
         ReadData(email.replace(".", ","));
-// Định dạng ngày giờ
-
-        day.setText(LocalDate.now().toString());
-        return rootView;
-
-
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChuyenTrang(ListFoodActivity.class);
+            }
+        });
+     return rootView;
     }
     private void ReadData(String email){
         DatabaseReference refa = FirebaseDatabase.getInstance().getReference("Daily").child(email.replace(".", ",")).child(LocalDate.now().toString());
@@ -65,22 +62,11 @@ public class HomeFragment extends Fragment {
                 if(dataSnapshot.exists()){
                     String Ca = String.valueOf(dataSnapshot.child("calo").getValue());
                     String Co = String.valueOf(dataSnapshot.child("count").getValue());
-                    progressBar.setProgress(Integer.parseInt(String.valueOf(dataSnapshot.child("water").getValue())));
                     count.setText(Co);
                     caloSum.setText(Ca);
 
                 }
-                else{
-                    Daily daily = new Daily(0,0,LocalDate.now().toString(),0);
-                    db= FirebaseDatabase.getInstance();
-                    ref=db.getReference("Daily").child(email.replace(".", ","));
-                    ref.child(LocalDate.now().toString()).setValue(daily).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            ChuyenTrang(HomeFragment.class);
-                        }
-                    });
-                }
+
             }
 
             @Override
@@ -93,4 +79,5 @@ public class HomeFragment extends Fragment {
         Intent intent = new Intent(requireActivity(), cls);
         startActivity(intent);
     }
+
 }
