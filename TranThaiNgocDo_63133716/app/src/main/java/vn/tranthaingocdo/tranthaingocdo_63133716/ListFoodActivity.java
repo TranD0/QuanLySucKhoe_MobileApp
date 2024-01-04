@@ -72,7 +72,6 @@ public class ListFoodActivity extends AppCompatActivity {
                 updateCalo(item);
             }
         });
-
     }
     private void ReadData(String email){
         DatabaseReference refa = FirebaseDatabase.getInstance().getReference("ListFood").child(email.replace(".", ","));
@@ -80,11 +79,9 @@ public class ListFoodActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         // Lấy tên của child
                         String foodName = snapshot.getKey();
-
                         // Lấy giá trị của child và thêm vào danh sách foods
                         Long foodCaloriesLong = snapshot.getValue(Long.class);
                         if (foodCaloriesLong != null) {
@@ -92,8 +89,6 @@ public class ListFoodActivity extends AppCompatActivity {
 
                             foods.add(new Food(foodName, foodCalories));
                         }
-
-
                     }
                     adater.notifyDataSetChanged();
                 }
